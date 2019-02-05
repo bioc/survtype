@@ -1,0 +1,11 @@
+
+exportPattern("^[^\\.]")
+
+import(pheatmap)
+import(survival)
+import(survminer)
+import(clustvarsel)
+import(stats)
+import(utils)
+importFrom("stats", "cutree", "ecdf", "median", "na.omit", "pchisq", "quantile")
+importFrom("utils", "head", "setTxtProgressBar", "txtProgressBar")
