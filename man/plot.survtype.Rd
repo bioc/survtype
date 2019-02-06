@@ -38,8 +38,8 @@ survminer::ggsurvplot
 }
 
 \examples{
-data(lung)
-lung.survtype <- Surv.survtype(lung, time = "time", status = "status")
-plot(lung.survtype, pval = TRUE)
+data(ovarian)
+ovarian.survtype <- Surv.survtype(ovarian, time = "futime", status = "fustat")
+plot(ovarian.survtype, pval = TRUE)
 }
 

@@ -77,6 +77,5 @@ survival::Surv, survival::survfit, survival::survdiff
 \examples{
 data(ovarian)
 ovarian.survtype <- Surv.survtype(ovarian, time = "futime", status = "fustat")
-plot(ovarian.survtype, pval = TRUE)
 }
 

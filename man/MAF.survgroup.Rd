@@ -96,7 +96,7 @@ laml.clinical.data <- laml.clinical.data[-index,]
 laml.clinical.data <- data.frame(laml.clinical.data)
 laml.survgroup <- MAF.survgroup(laml.clinical.data, time = "days_to_last_followup",
                                 status = "Overall_Survival_Status", laml.maf,
-                                num.genes = 5, siginificant.genes = 2,
+                                num.genes = 3, siginificant.genes = 1,
                                 pval = TRUE)
 }
 
