@@ -76,8 +76,9 @@ plot.survtype(Single.survgroup(DLBCLpatients, time = "time", status = "status", 
 Sample subtype can be identified using survival data and gene expression data. For DLBCL data, there are two subtypes. Among patients, those with poor prognosis (N = 105) have high expression at probe 1072, 5621, 6166 and 4574, but those with good prognosis (N = 135) have high expression at probe 7357, 4131 and 1188. Thus we are able to investgate the association between gene expression and survival data.
 
 ```{r, fig.align='center', message=FALSE, warning=FALSE, eval=TRUE}
+SE <- SummarizedExperiment(assays=SimpleList(expression = as.matrix(DLBCLgenes)))
 DLBCL.survtype <- Exprs.survtype(DLBCLpatients, time = "time", status = "status",
-                                 DLBCLgenes, num.genes = 50, scale = "row",
+                                 assay(SE), num.genes = 50, scale = "row",
                                  gene.sel = TRUE, clustering_method = "ward.D2",
                                  show_colnames = FALSE)
 plot.survtype(DLBCL.survtype, pval = TRUE)
@@ -90,7 +91,7 @@ plot.survtype(DLBCL.survtype, pval = TRUE)
 Consider TCGA LUAD data for cancer patients with stage I.
 
 ```{r, fig.align='center', message=FALSE, warning=FALSE, eval=FALSE}
-library(DESeq2)
+library(SummarizedExperiment)
 library(TCGAbiolinks)
 query <- GDCquery(project = "TCGA-LUAD",
                   data.category = "Gene expression",

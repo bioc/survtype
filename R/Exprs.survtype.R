@@ -3,6 +3,7 @@ Exprs.survtype <- function(surv.data, time, status, exprs.data, K = 2,
                            num.genes = 100, gene.sel = FALSE,
                            gene.sel.opt = list(verbose = FALSE), ...)
 {
+  exprs.data <- data.frame(exprs.data)
   if(!identical(rownames(na.omit(surv.data)), colnames(exprs.data)))
   {
     cat("the row names of the survivla data and the column names of the expression data are not identical \n")

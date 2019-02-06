@@ -30,6 +30,9 @@ Dongmin Jung
 
 
 \examples{
-DLBCLgenes <- read.csv("https://doi.org/10.1371/journal.pbio.0020108.sd012", header = FALSE)
-normalized.matrix <- quantile_normalization(DLBCLgenes)
+set.seed(1)
+nrows <- 200
+ncols <- nrow(ovarian)
+counts <- matrix(runif(nrows * ncols, 1, 1e4), nrows)
+normalized.matrix <- quantile_normalization(counts)
 }

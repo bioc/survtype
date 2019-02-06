@@ -16,9 +16,9 @@ Author: Dongmin Jung
 
 Maintainer: Dongmin Jung <dmdmjung@gmail.com>
 
-Depends: pheatmap, survival, survminer, clustvarsel
+Depends: pheatmap, survival, survminer, clustvarsel, SummarizedExperiment, stats, utils
 
-Suggests: maftools, scales
+Suggests: maftools, scales, knitr
 
 License: Artistic-2.0
 

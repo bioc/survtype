@@ -25,7 +25,7 @@ Single.survgroup <- function(surv.data, time, status, single.gene, intermediate 
   sort.single.gene <- sort(unique(single.gene))
   threshold <- approx(sort.single.gene, n = 2*length(sort.single.gene) - 1)$y
   threshold <- threshold [-which(threshold  %in% sort.single.gene)]
-  # find p-values for all threshold
+  # find p-values for every threshold
   if(intermediate == FALSE)
   {
     p.values <- 0

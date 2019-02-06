@@ -6,7 +6,7 @@ Version: 0.99.0
 Date: 2019-02-05
 Author: Dongmin Jung
 Maintainer: Dongmin Jung <dmdmjung@gmail.com>
-Depends: pheatmap, survival, survminer, clustvarsel, stats, utils
+Depends: pheatmap, survival, survminer, clustvarsel, SummarizedExperiment, stats, utils
 Suggests: maftools, scales, knitr
 License: Artistic-2.0
 biocViews: Software, StatisticalMethod, GeneExpression, Survival, Clustering

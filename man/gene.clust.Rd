@@ -40,14 +40,17 @@ pheatmap::pheatmap
 }
 
 \examples{
-DLBCLgenes <- read.csv("https://doi.org/10.1371/journal.pbio.0020108.sd012", header = FALSE)
-DLBCLpatients <- read.csv("https://doi.org/10.1371/journal.pbio.0020108.sd013", header = FALSE)
-colnames(DLBCLpatients) <- c("time", "status")
-rownames(DLBCLpatients) <- colnames(DLBCLgenes)
-DLBCL.survtype <- Exprs.survtype(DLBCLpatients, time = "time", status = "status",
-                                 DLBCLgenes, num.genes = 50, scale = "row",
-                                 gene.sel = TRUE, clustering_method = "ward.D2")
-plot(DLBCL.survtype, pval = TRUE)
-gene.clust(DLBCL.survtype, 2, scale = "row", clustering_method = "ward.D2")
+set.seed(1)
+nrows <- 200
+ncols <- nrow(ovarian)
+counts <- matrix(runif(nrows * ncols, 1, 1e4), nrows)
+colnames(counts) <- paste("X", 1:ncols, sep = "")
+rownames(ovarian) <- paste("X", 1:ncols, sep = "")
+SE <- SummarizedExperiment(assays = SimpleList(counts = counts))
+ovarian.survtype <- Exprs.survtype(ovarian, time = "futime", status = "fustat",
+                                 assay(SE), num.genes = 50, scale = "row",
+                                 clustering_method = "ward.D2")
+plot(ovarian.survtype, pval = TRUE)
+gene.clust(ovarian.survtype, 2, scale = "row", clustering_method = "ward.D2")
 }
 
