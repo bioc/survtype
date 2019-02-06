@@ -46,10 +46,12 @@ By cutting the survival times at the median survival time of the samples, two cl
 
 ```{r, fig.align='center', message=FALSE, warning=FALSE, eval=TRUE}
 library(survtype)
-
 data(lung)
 lung.survtype <- Surv.survtype(lung, time = "time", status = "status")
 plot.survtype(lung.survtype, pval = TRUE)
+```
+
+```{r, fig.align='center', message=FALSE, warning=FALSE, eval=TRUE}
 data(ovarian)
 ovarian.survtype <- Surv.survtype(ovarian, time = "futime", status = "fustat")
 plot.survtype(ovarian.survtype, pval = TRUE)
@@ -61,21 +63,15 @@ plot.survtype(ovarian.survtype, pval = TRUE)
 
 ## Gene expression data
 
-With gene expression data, two subsets of patients can be generated based on the expression level of a single gene; that is, one subgroup consists of those patients with expression level of the gene above a chosen threshold value, and the other subgroup consists of the remaining patients. Every possible cutpoint is considered and the value that minimizes the p-value is chosen. That is, for each of the subsets, the single gene and threshold that optimally separates the samples in that subset can be determined. Consider the gene expression levels of the tumor-biopsy specimens collected from 240 DLBCL patients with diffuse large-B-cell lymphoma after chemotherapy.
+With gene expression data, two subsets of patients can be generated based on the expression level of a single gene; that is, one subgroup consists of those patients with expression level of the gene above a chosen threshold value, and the other subgroup consists of the remaining patients. Every possible cutpoint is considered and the value that minimizes the p-value is chosen. That is, for each of the subsets, the single gene and threshold that optimally separates the samples in that subset can be determined. Consider the gene expression levels of the tumor-biopsy specimens collected from 240 DLBCL patients with diffuse large-B-cell lymphoma after chemotherapy. Sample subtype can be identified using survival data and gene expression data. For DLBCL data, there are two subtypes. Among patients, those with poor prognosis (N = 105) have high expression at probe 1072, 5621, 6166 and 4574, but those with good prognosis (N = 135) have high expression at probe 7357, 4131 and 1188. Thus we are able to investgate the association between gene expression and survival data.
 
-```{r, fig.align='center', message=FALSE, warning=FALSE, eval=TRUE}
+```{r, fig.align='center', message=FALSE, warning=FALSE, eval=FALSE}
 DLBCLgenes <- read.csv("https://doi.org/10.1371/journal.pbio.0020108.sd012", header = FALSE)
 DLBCLpatients <- read.csv("https://doi.org/10.1371/journal.pbio.0020108.sd013", header = FALSE)
 colnames(DLBCLpatients) <- c("time", "status")
 rownames(DLBCLpatients) <- colnames(DLBCLgenes)
 plot.survtype(Single.survgroup(DLBCLpatients, time = "time", status = "status", DLBCLgenes[1,]), pval = TRUE)
-```
 
-<br>
-
-Sample subtype can be identified using survival data and gene expression data. For DLBCL data, there are two subtypes. Among patients, those with poor prognosis (N = 105) have high expression at probe 1072, 5621, 6166 and 4574, but those with good prognosis (N = 135) have high expression at probe 7357, 4131 and 1188. Thus we are able to investgate the association between gene expression and survival data.
-
-```{r, fig.align='center', message=FALSE, warning=FALSE, eval=TRUE}
 SE <- SummarizedExperiment(assays=SimpleList(expression = as.matrix(DLBCLgenes)))
 DLBCL.survtype <- Exprs.survtype(DLBCLpatients, time = "time", status = "status",
                                  assay(SE), num.genes = 50,
