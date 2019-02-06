@@ -41,14 +41,14 @@ pheatmap::pheatmap
 
 \examples{
 set.seed(1)
-nrows <- 200
+nrows <- 100
 ncols <- nrow(ovarian)
 counts <- matrix(runif(nrows * ncols, 1, 1e4), nrows)
 colnames(counts) <- paste("X", 1:ncols, sep = "")
 rownames(ovarian) <- paste("X", 1:ncols, sep = "")
 SE <- SummarizedExperiment(assays = SimpleList(counts = counts))
 ovarian.survtype <- Exprs.survtype(ovarian, time = "futime", status = "fustat",
-                                 assay(SE), num.genes = 50, scale = "row",
+                                 assay(SE), num.genes = 10, scale = "row",
                                  clustering_method = "ward.D2")
 plot(ovarian.survtype, pval = TRUE)
 gene.clust(ovarian.survtype, 2, scale = "row", clustering_method = "ward.D2")
