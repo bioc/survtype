@@ -78,7 +78,7 @@ ncols <- nrow(ovarian)
 counts <- matrix(runif(nrows * ncols, 1, 1e4), nrows)
 colnames(counts) <- paste("X", 1:ncols, sep = "")
 rownames(ovarian) <- paste("X", 1:ncols, sep = "")
-plot(Single.survgroup(ovarian, time = "futime", status = "fustat", counts[1,]),
-     pval = TRUE)
+Single.ovarian <- Single.survgroup(ovarian, time = "futime", status = "fustat", counts[1,])
+plot(Single.ovarian, pval = TRUE)
 }
 

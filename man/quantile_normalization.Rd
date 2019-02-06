@@ -31,7 +31,7 @@ Dongmin Jung
 
 \examples{
 set.seed(1)
-nrows <- 50
+nrows <- 10
 ncols <- 5
 counts <- matrix(runif(nrows * ncols, 1, 1e4), nrows)
 normalized.matrix <- quantile_normalization(counts)
