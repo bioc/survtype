@@ -78,8 +78,9 @@ Sample subtype can be identified using survival data and gene expression data. F
 ```{r, fig.align='center', message=FALSE, warning=FALSE, eval=TRUE}
 SE <- SummarizedExperiment(assays=SimpleList(expression = as.matrix(DLBCLgenes)))
 DLBCL.survtype <- Exprs.survtype(DLBCLpatients, time = "time", status = "status",
-                                 assay(SE), num.genes = 50, scale = "row",
-                                 gene.sel = TRUE, clustering_method = "ward.D2",
+                                 assay(SE), num.genes = 50,
+                                 scale = "row", gene.sel = TRUE,
+                                 clustering_method = "ward.D2",
                                  show_colnames = FALSE)
 plot.survtype(DLBCL.survtype, pval = TRUE)
 ```
