@@ -148,8 +148,9 @@ plot(VEGFA.survgroup, title = "VEGFA", pval = TRUE)
 Consider mutation data for TCGA LAML cohort in the package "maftools". Two groups with or wthout the missense mutation on the gene DNMT3A are most significantly different in terms of survival. Patients with the mutation on DNMT3A have poor prognosis. Since the distribution for the mutation group shows a significantly different survival curve from the non-mutation group, we may then choose to treat the two groups with different strategies.
 
 ```{r, fig.align='center', message=FALSE, warning=FALSE, eval=TRUE}
-laml.maf <- system.file('extdata', 'tcga_laml.maf.gz', package = 'maftools')
-laml.clin <- system.file('extdata', 'tcga_laml_annot.tsv', package = 'maftools')
+library(maftools)
+laml.maf <- system.file('extdata', 'tcga_laml.maf.gz', package = 'maftools', mustWork = TRUE)
+laml.clin <- system.file('extdata', 'tcga_laml_annot.tsv', package = 'maftools', mustWork = TRUE)
 laml.maf <- read.csv(laml.maf, sep = "\t")
 laml.clinical.data <- read.csv(laml.clin, sep = "\t", row.names = 1)
 index <- which(laml.clinical.data$days_to_last_followup == -Inf)
