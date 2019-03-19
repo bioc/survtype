@@ -1,14 +1,16 @@
-Package: survtype
+Package: gsean
 Type: Package
-Title: Subtype Identification with Survival Data
-Description: Subtypes are defined as groups of samples that have distinct molecular and clinical features. Genomic data can be analyzed for discovering patient subtypes, associated with clinical data, especially for survival information. This package is aimed to identify subtypes that are both clinically relevant and biologically meaningful.
-Version: 0.99.8
-Date: 2019-02-05
+Title: Gene Set Enrichment Analysis with Networks
+Description: Biological molecules in a living organism seldom work individually. They usually interact each other in a cooperative way. Biological process is too complicated to understand without considering such interactions. Thus, network-based procedures can be seen as powerful methods for studying complex process. However, many methods are devised for analyzing individual genes. It is said that techniques based on biological networks such as gene co-expression are more precise ways to represent information than those using lists of genes only. This package is aimed to integrate the gene expression and biological network. A biological network is constructed from gene expression data and it is used for Gene Set Enrichment Analysis.
+Version: 1.2.1
+Date: 2019-02-11
 Author: Dongmin Jung
 Maintainer: Dongmin Jung <dmdmjung@gmail.com>
-Depends: SummarizedExperiment, pheatmap, survival, survminer, clustvarsel, stats, utils
-Suggests: maftools, scales, knitr
+Depends: R (>= 3.5), fgsea, PPInfer
+Suggests: SummarizedExperiment, knitr, plotly, RANKS, WGCNA
 License: Artistic-2.0
-biocViews: Software, StatisticalMethod, GeneExpression, Survival, Clustering, Sequencing, Coverage
+biocViews: Software, StatisticalMethod, Network, GraphAndNetwork,
+          GeneSetEnrichment, GeneExpression, NetworkEnrichment,
+          Pathways, DifferentialExpression
 NeedsCompilation: no
 VignetteBuilder: knitr

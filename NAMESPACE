@@ -1,10 +1,5 @@
 
 exportPattern("^[^\\.]")
 
-import(pheatmap)
-import(survival)
-import(survminer)
-import(clustvarsel)
-import(stats)
-import(utils)
-import(SummarizedExperiment)
+import(fgsea)
+import(PPInfer)
