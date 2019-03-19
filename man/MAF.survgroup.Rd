@@ -87,8 +87,9 @@ survival::Surv, survival::survfit, survival::survdiff, survminer::ggsurvplot
 }
 
 \examples{
-laml.maf <- system.file('extdata', 'tcga_laml.maf.gz', package = 'maftools')
-laml.clin <- system.file('extdata', 'tcga_laml_annot.tsv', package = 'maftools')
+library(maftools)
+laml.maf <- system.file('extdata', 'tcga_laml.maf.gz', package = 'maftools', mustWork = TRUE)
+laml.clin <- system.file('extdata', 'tcga_laml_annot.tsv', package = 'maftools', mustWork = TRUE)
 laml.maf <- read.csv(laml.maf, sep = "\t")
 laml.clinical.data <- read.csv(laml.clin, sep = "\t", row.names = 1)
 index <- which(laml.clinical.data$days_to_last_followup == -Inf)
