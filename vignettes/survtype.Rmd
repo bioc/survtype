@@ -1,7 +1,7 @@
 ---
 title: "Subtype Identification with Survival Data"
 author: "Dongmin Jung"
-date: February 5, 2019
+date: March 19, 2019
 output:
   rmarkdown::html_document:
     highlight: pygments
