@@ -8,9 +8,9 @@ Title: Subtype Identification with Survival Data
 
 Description: Subtypes are defined as groups of samples that have distinct molecular and clinical features. Genomic data can be analyzed for discovering patient subtypes, associated with clinical data, especially for survival information. This package is aimed to identify subtypes that are both clinically relevant and biologically meaningful.
 
-Version: 0.99.10
+Version: 1.3.1
 
-Date: 2019-03-19
+Date: 2019-12-18
 
 Author: Dongmin Jung
 

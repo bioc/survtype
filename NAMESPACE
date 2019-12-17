@@ -1,6 +1,6 @@
 
 exportPattern("^[^\\.]")
-
+S3method(plot,survtype)
 import(pheatmap)
 import(survival)
 import(survminer)
